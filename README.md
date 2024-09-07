@@ -33,3 +33,12 @@ Follow the steps below to set up the project locally:
    ```bash
    git clone https://github.com/yourusername/document-management-system.git
    cd document-management-system
+
+2. **Create a virtual environment (optional but recommended)**:
+
+```
+python -m venv env
+source env/bin/activate  # For Windows: env\Scripts\activate
+
+```
+
