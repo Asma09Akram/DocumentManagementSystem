@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    position: relative; /* For positioning logout button */
+}
+
+.logout-button {
+    position: absolute; /* Position the logout button absolutely */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+}
+
+h1, h2 {
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+ul.document-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul.document-list li {
+    display: flex;
+    justify-content: space-between; /* Aligns name and delete button */
+    align-items: center; /* Vertically centers items */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul.document-list li:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+.document-name {
+    font-size: 16px;
+    color: #333;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-sm {
+    padding: 2px 6px;
+    font-size: 12px;
+}
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Document Management System</title>
+    <!-- Link to Bootstrap CSS for basic styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to your custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #c1a055, #f6e3e3); /* Pastel gradient background */
+            font-family: 'Poppins', sans-serif; /* Stylish font */
+        }
+        .container {
+            max-width: 400px;
+            margin-top: 50px;
+        }
+        .login-form {
+            background-color: #ffffff; /* White background for the form */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h2 {
+            color: #5d9cec; /* Pastel blue color */
+            font-weight: 600; /* Bold font */
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            color: #6c757d; /* Soft grey color for labels */
+        }
+        .form-group input {
+            border-radius: 4px;
+            border: 1px solid #ced4da; /* Light grey border */
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Inner shadow */
+        }
+        .btn-primary {
+            background-color: #5d9cec; /* Matching button color */
+            border-color: #5d9cec;
+        }
+        .btn-primary:hover {
+            background-color: #4a8cdb; /* Darker shade on hover */
+            border-color: #4a8cdb;
+        }
+        .signup-link {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .signup-link a {
+            color: #5d9cec; /* Matching link color */
+            text-decoration: none;
+        }
+        .signup-link a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .alert-messages {
+            margin-top: 20px;
+        }
+        .alert {
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+
+            {% if messages %}
+                <div class="alert-messages">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

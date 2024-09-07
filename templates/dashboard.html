@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Document Management System</title>
+    <!-- Link to Bootstrap CSS for basic styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Link to custom CSS for additional styling -->
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <style>
+        body {
+            /* Gradient background */
+            background: linear-gradient(to right, #a2c2e0, #f4c4f3); /* Light blue to light pink gradient */
+            font-family: 'Arial', sans-serif; /* Font style */
+        }
+        .container {
+            background-color: #ffffff; /* White background for container */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333333; /* Dark grey color for the main heading */
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #555555; /* Medium grey color for subheadings */
+            font-size: 1.8rem;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .logout-button {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .document-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .document-list li {
+            background-color: #f9f9f9; /* Light pastel grey for list items */
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .document-name {
+            font-size: 1rem;
+        }
+        .btn-info {
+            background-color: #6c757d; /* Pastel blue-grey for view button */
+            border: none;
+        }
+        .btn-info:hover {
+            background-color: #5a6268; /* Darker blue-grey on hover */
+        }
+        .btn-danger {
+            background-color: #e74c3c; /* Pastel red for delete button */
+            border: none;
+        }
+        .btn-danger:hover {
+            background-color: #c0392b; /* Darker red on hover */
+        }
+        .messages {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logout-button">
+            <a href="{% url 'logout' %}" class="btn btn-secondary">Logout</a>
+        </div>
+
+        <h1>Dashboard, Welcome back {{ user.username }} </h1>
+
+        <h2>Upload Document</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" name="upload" class="btn btn-primary">Upload</button>
+        </form>
+
+        <h2>My Documents</h2>
+        <ul class="document-list">
+            {% for document in documents %}
+                <li>
+                    <span class="document-name">{{ document.file.name }}</span>
+
+                                    
+                    <!-- View/Download/Delete button -->
+                    <form method="POST" class="delete-form" style="display:inline;">
+                        {% csrf_token %}
+                        <input type="hidden" name="document_id" value="{{ document.id }}">
+                        <a href="{{ document.file.url }}" target="_blank" class="btn btn-danger btn-sm">View</a> 
+                        <button type="submit" name="delete" class="btn btn-danger btn-sm">Delete</button>
+                        
+                        <button type="download" name="download" class="btn btn-danger btn-sm">Download</button>
+                    </form>
+                </li>
+            {% empty %}
+                <li>No documents found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
