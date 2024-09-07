@@ -39,7 +39,8 @@ Follow the steps below to set up the project locally:
 
   ```
   python -m venv env
-  source env/bin/activate  # For Windows: env\Scripts\activate
+  source env/bin/activate
+  # For Windows: env\Scripts\activate
  ```
 3. **Install the dependencies**:
 
