@@ -79,7 +79,7 @@ document-management-system/
 │   ├── models.py              # Models for Document and User
 │   └── urls.py                # URL configurations for document app
 │
-├── project/                   # Django project settings
+├── DMS/                   # Django project settings
 │   ├── settings.py            # Main project settings
 │   └── urls.py                # Project-wide URLs
 │
