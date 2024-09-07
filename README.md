@@ -59,7 +59,7 @@ Follow the steps below to set up the project locally:
 ```
    python manage.py runserver
 ```
-7. **Open your browser and navigate to http://127.0.0.1:8000/ to access the system.***
+7. **Open your browser and navigate to http://127.0.0.1:8000/ to access the system.**
 
 **Usage**
 Sign Up: Register an account on the sign-up page.
