@@ -41,4 +41,51 @@ Follow the steps below to set up the project locally:
   python -m venv env
   source env/bin/activate  # For Windows: env\Scripts\activate
  ```
+3. **Install the dependencies**:
+
+```bash
+   pip install -r requirements.txt
+```
+4. **Run database migrations** :
+```
+  python manage.py migrate
+```
+
+5. **Create a superuser (optional, for admin access)**:
+```
+   python manage.py createsuperuser
+```
+6. **Run the development server**:
+```
+   python manage.py runserver
+```
+7. **Open your browser and navigate to http://127.0.0.1:8000/ to access the system.***
+
+**Usage**
+Sign Up: Register an account on the sign-up page.
+Login: Log in to access your dashboard.
+Upload Documents: Use the upload feature to add new documents.
+View/Download/Delete Documents: Manage your documents with ease.
+
+**Folder Structure**
+```
+document-management-system/
+│
+├── documents/                 # Application to handle document upload and management
+│   ├── migrations/            # Django migration files
+│   ├── templates/             # HTML templates for the web pages
+│   ├── static/                # Static files (CSS, images)
+│   ├── views.py               # Views for handling document operations
+│   ├── models.py              # Models for Document and User
+│   └── urls.py                # URL configurations for document app
+│
+├── project/                   # Django project settings
+│   ├── settings.py            # Main project settings
+│   └── urls.py                # Project-wide URLs
+│
+├── media/                     # Directory where uploaded documents are stored
+├── manage.py                  # Django management script
+├── requirements.txt           # Python dependencies
+└── README.md                  # This README file
+```
 
